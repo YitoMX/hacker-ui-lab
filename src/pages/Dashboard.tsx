@@ -1,10 +1,19 @@
+import { lazy, Suspense } from "react"
 import { motion } from "framer-motion"
 import { Sparkles, DollarSign, Users, Award, Percent } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { ProductCard } from "@/components/ProductCard"
 import type { Product } from "@/components/ProductCard"
-import { DemoTable } from "@/components/DemoTable"
-import { LoginForm } from "@/components/LoginForm"
+
+// Lazy imports of heavy widgets
+const ProductCard = lazy(() =>
+  import("@/components/ProductCard").then((m) => ({ default: m.ProductCard }))
+)
+const DemoTable = lazy(() =>
+  import("@/components/DemoTable").then((m) => ({ default: m.DemoTable }))
+)
+const LoginForm = lazy(() =>
+  import("@/components/LoginForm").then((m) => ({ default: m.LoginForm }))
+)
 
 const sampleProducts: Product[] = [
   {
@@ -38,6 +47,50 @@ const sampleProducts: Product[] = [
     features: ["Biometric Sensor", "Dual Cryptographic Chips", "E-Ink High Resolution", "IP68 Water Resistance"],
   },
 ]
+
+function ProductCardSkeleton() {
+  return (
+    <Card className="flex h-full flex-col overflow-hidden border-border bg-card animate-pulse">
+      <div className="h-48 w-full bg-muted/40" />
+      <div className="p-4 pb-1 space-y-2">
+        <div className="flex justify-between">
+          <div className="h-3 bg-muted/40 rounded w-1/4" />
+          <div className="h-3 bg-muted/40 rounded w-1/12" />
+        </div>
+        <div className="h-5 bg-muted/40 rounded w-3/4 mt-2" />
+      </div>
+      <div className="p-4 pt-1 flex-grow">
+        <div className="h-3 bg-muted/40 rounded w-full mt-2" />
+        <div className="h-3 bg-muted/40 rounded w-5/6 mt-1.5" />
+      </div>
+      <div className="flex items-center justify-between border-t border-border/50 p-4 bg-muted/5">
+        <div className="h-6 bg-muted/40 rounded w-1/4" />
+        <div className="flex gap-2">
+          <div className="h-8 w-8 bg-muted/40 rounded" />
+          <div className="h-8 w-16 bg-muted/40 rounded" />
+        </div>
+      </div>
+    </Card>
+  )
+}
+
+function ComponentSkeleton() {
+  return (
+    <Card className="w-full h-[400px] flex flex-col justify-between p-6 animate-pulse border-border bg-card">
+      <div className="space-y-4">
+        <div className="h-6 bg-muted/40 rounded w-1/3" />
+        <div className="h-4 bg-muted/40 rounded w-2/3" />
+        <div className="space-y-3 pt-6">
+          <div className="h-8 bg-muted/40 rounded" />
+          <div className="h-8 bg-muted/40 rounded" />
+          <div className="h-8 bg-muted/40 rounded" />
+          <div className="h-8 bg-muted/40 rounded" />
+        </div>
+      </div>
+      <div className="h-10 bg-muted/40 rounded w-full mt-4" />
+    </Card>
+  )
+}
 
 export function Dashboard() {
   return (
@@ -134,7 +187,9 @@ export function Dashboard() {
           </div>
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {sampleProducts.map((prod) => (
-              <ProductCard key={prod.id} product={prod} />
+              <Suspense key={prod.id} fallback={<ProductCardSkeleton />}>
+                <ProductCard product={prod} />
+              </Suspense>
             ))}
           </div>
         </section>
@@ -149,7 +204,9 @@ export function Dashboard() {
                 TanStack Table sorting and search filter.
               </p>
             </div>
-            <DemoTable />
+            <Suspense fallback={<ComponentSkeleton />}>
+              <DemoTable />
+            </Suspense>
           </section>
 
           {/* Form validation card - 1 column wide on desktop */}
@@ -160,7 +217,9 @@ export function Dashboard() {
                 Zod validation sandbox.
               </p>
             </div>
-            <LoginForm />
+            <Suspense fallback={<ComponentSkeleton />}>
+              <LoginForm />
+            </Suspense>
           </section>
         </div>
       </div>

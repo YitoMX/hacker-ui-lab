@@ -1,93 +1,151 @@
-# hacker-ui-lab - HACKER UI LAB
+# ⚡ HACKER UI LAB
 
-`hacker-ui-lab` es un kit de desarrollo base (boilerplate) moderno, comercial y altamente escalable para la creación de interfaces de usuario premium. Está preparado para servir como plantilla inicial para landing pages, paneles de administración (dashboards), pasarelas de autenticación (logins), catálogos y e-commerce.
+[![React](https://img.shields.io/badge/React-19.2.7-blue?style=flat-square&logo=react)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-6.0.3-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
+[![Vite](https://img.shields.io/badge/Vite-8.1.0-646CFF?style=flat-square&logo=vite)](https://vite.dev/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v3.4-38B2AC?style=flat-square&logo=tailwind-css)](https://tailwindcss.com/)
+[![GitHub Pages](https://img.shields.io/badge/GitHub_Pages-Active-emerald?style=flat-square&logo=github)](https://yitomx.github.io/hacker-ui-lab/)
+[![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
 
-Este entorno está configurado con las mejores tecnologías del ecosistema de React, optimizado para compilaciones rápidas, tipado estricto y total responsividad.
+**HACKER UI LAB** es un entorno de desarrollo base (boilerplate) premium, comercial y de alto rendimiento diseñado para servir como plantilla inicial para landing pages, paneles de administración (dashboards), pasarelas de acceso (logins), catálogos y plataformas de e-commerce.
 
----
-
-## ⚡ Características Principales
-
-* **Diseño Responsivo Real:** Todos los componentes y vistas (Dashboard, Navbar, Catálogos, Tablas y Formularios) están diseñados para adaptarse fluidamente a pantallas de **Móviles, Tablets y Escritorios (PC)**.
-* **Micro-interacciones Fluidas:** Animaciones basadas en físicas de resortes (*springs*) con Framer Motion para botones, tarjetas y navegación.
-* **Componentes Listos para Usar:** Integración directa con Radix UI adaptada al estilo de shadcn/ui.
-* **Formularios con Validación:** Validación estricta basada en esquemas de datos con Zod y React Hook Form.
-* **Tablas de Datos Dinámicas:** Ordenación, paginación y búsqueda en tablas con TanStack Table.
-* **Modo Oscuro Integrado:** Mapeo de variables HSL de CSS para cambio instantáneo de tema.
+Este proyecto actúa como un laboratorio de referencias de interfaz de usuario, optimizado para cargas instantáneas, división de código (code-splitting), y total adaptabilidad en móviles, tablets y computadoras de escritorio.
 
 ---
 
-## 🛠️ Stack Tecnológico
+## 🔗 Demo en Vivo
 
-* **Vite** - Bundler de última generación.
-* **React 19 & TypeScript** - Desarrollo ágil y tipado estricto.
-* **Tailwind CSS v3** - Estilos rápidos basados en utilidades.
+Puedes explorar y probar la versión optimizada en vivo aquí:
+👉 **[https://yitomx.github.io/hacker-ui-lab/](https://yitomx.github.io/hacker-ui-lab/)**
+
+---
+
+## 📸 Preview (Screenshots Pending)
+
+> [!NOTE]
+> Las capturas visuales oficiales se encuentran pendientes de generación local. Puedes capturarlas tú mismo siguiendo estos pasos:
+> 1. Levanta el servidor local con `pnpm dev`.
+> 2. Toma capturas de pantalla de la interfaz en los tamaños indicados abajo.
+> 3. Guarda las imágenes en `public/screenshots/` con los nombres correspondientes.
+>
+> * **Escritorio (1440px):** `public/screenshots/desktop-dashboard.webp`
+> * **Tablet (768px):** `public/screenshots/tablet-dashboard.webp`
+> * **Móvil (390px):** `public/screenshots/mobile-dashboard.webp`
+> * **Quick View Modal:** `public/screenshots/quick-view-modal.webp`
+> * **Tabla Responsive:** `public/screenshots/responsive-table.webp`
+
+---
+
+## ✨ Características Principales
+
+1. **Optimización Extrema de Bundle:** El bundle principal se redujo de **573.72 kB a solo 7.97 kB** gracias a la segmentación de código y carga perezosa de vistas secundarias.
+2. **Carga Perezosa (Lazy Loading):** Los widgets y componentes interactivos pesados (`LoginForm`, `DemoTable`, `ProductCard`) se importan de forma diferida (`React.lazy` + `Suspense`) evitando bloquear el renderizado inicial.
+3. **Esqueletos de Carga (Skeletons):** Todos los componentes asíncronos tienen skeletons integrados que respetan el diseño oscuro para mitigar el Cumulative Layout Shift (CLS).
+4. **Diseño Responsivo Real:** Adaptación nativa sin scroll horizontal global, optimizado para móvil pequeño (360px), estándar (390px), móvil grande (430px), tablet vertical (768px), horizontal (1024px) y pantallas ultra-anchas.
+5. **Componentes Comerciales Reactivos:**
+   * **LoginForm:** Acceso validado con esquemas robustos en tiempo real mediante Zod y React Hook Form.
+   * **ProductCard:** Catálogo interactivo con animaciones spring de Framer Motion y diálogo detallado.
+   * **DemoTable:** Tabla con ordenamiento, filtrado en vivo y paginación interna impulsada por TanStack Table.
+
+---
+
+## 🛠️ Stack Tecnológico Completo
+
+* **Vite** - Bundler y servidor de desarrollo.
+* **React 19 & TypeScript** - Lógica e interfaces estructuradas.
+* **Tailwind CSS v3** - Estilos utilitarios rápidos y responsivos.
+* **Framer Motion v12** - Animaciones físicas y fluidas.
 * **Radix UI & shadcn/ui** - Primitivos de componentes accesibles.
-* **Framer Motion** - Motor de animaciones de alto rendimiento.
-* **React Hook Form & Zod** - Manejo de formularios y esquemas de validación.
-* **TanStack Query (v5)** - Sincronización del estado del servidor.
-* **TanStack Table (v8)** - Tablas dinámicas y cuadrículas de datos.
-* **Lucide React** - Iconografía moderna y consistente.
+* **TanStack Query v5** - Administración de estados asíncronos.
+* **TanStack Table v8** - Gestión de cuadrículas de datos complejas.
+* **Lucide React** - Iconografía SVG consistente.
 
 ---
 
-## 📁 Estructura de Directorios
+## 🚀 Guía de Instalación y Uso
 
-```text
-src/
-├── assets/         # Recursos estáticos globales (imágenes, SVGs)
-├── components/     # Componentes de la interfaz
-│   ├── ui/         # Componentes atómicos (Button, Card, Input, Dialog)
-│   ├── Navbar.tsx      # Barra de navegación responsive y animada
-│   ├── ProductCard.tsx # Tarjetas de catálogo interactivo con Quick View
-│   ├── LoginForm.tsx   # Login con validación Zod en tiempo real
-│   └── DemoTable.tsx   # Tabla interactiva con búsqueda, ordenación y paginación
-├── hooks/          # Hooks personalizados reutilizables
-├── layouts/        # Componentes de distribución de layouts
-├── lib/            # Utilidades generales (utils.ts con función cn)
-├── pages/          # Vistas completas de la app (Dashboard.tsx)
-├── styles/         # Estilos globales y variables HSL (globals.css)
-├── App.tsx         # Proveedores de estado, query client y enrutamiento
-└── main.tsx        # Punto de entrada y montaje en el DOM
+El proyecto está listo para ser clonado y ejecutado con **pnpm**:
+
+### 1. Clonar el repositorio
+```bash
+git clone https://github.com/YitoMX/hacker-ui-lab.git
+cd hacker-ui-lab
 ```
 
----
-
-## 🚀 Guía de Inicio Rápido
-
-El proyecto utiliza **pnpm** para la administración de paquetes.
-
-### 1. Clonar e Instalar Dependencias
+### 2. Instalar dependencias locales
 ```bash
-git clone https://github.com/acroni608/hacker-ui-lab.git
-cd hacker-ui-lab
 pnpm install
 ```
 
-### 2. Iniciar Servidor de Desarrollo
-Para arrancar el proyecto localmente con recarga rápida (HMR):
+### 3. Iniciar el servidor de desarrollo
 ```bash
 pnpm dev
 ```
-Abre tu navegador en: [http://localhost:5173](http://localhost:5173)
+La consola indicará el enlace de desarrollo local (generalmente [http://localhost:5173/](http://localhost:5173/)).
 
-### 3. Compilar para Producción
-Para verificar tipos y compilar el código optimizado:
+### 4. Compilar para producción (Build)
+Para verificar la compilación y generar el empaquetado optimizado en chunks dentro de `dist/`:
 ```bash
 pnpm build
 ```
 
 ---
 
-## 🎨 Compatibilidad de Vistas
+## 📂 Estructura del Proyecto
 
-El código está diseñado para verse perfecto en cualquier dispositivo:
-* **Escritorio / PC:** Layout de cuadrícula de 3 columnas para productos y paneles side-by-side.
-* **Tablets:** Cuadrícula de 2 columnas y redimensionamiento automático de la barra de navegación.
-* **Móviles:** Menú colapsable con hamburguesa animada, scroll horizontal seguro para tablas de datos y apilamiento vertical adaptado para formularios y tarjetas de métricas.
+```text
+src/
+├── assets/         # Recursos globales e ilustraciones estáticas
+├── components/     # Componentes modulares
+│   ├── ui/         # Componentes atómicos (Button, Card, Input, Dialog)
+│   ├── Navbar.tsx      # Barra de navegación superior responsive animada
+│   ├── ProductCard.tsx # Tarjetas de productos comerciales con Quick View
+│   ├── LoginForm.tsx   # Login validado en tiempo real con Zod
+│   └── DemoTable.tsx   # Tabla dinámica con paginación, filtros y ordenación
+├── hooks/          # Hooks personalizados
+├── layouts/        # Distribución estructural de páginas
+├── lib/            # Funciones y clases de soporte (utils.ts)
+├── pages/          # Vistas principales (Dashboard.tsx cargado de forma perezosa)
+├── styles/         # Estilos globales y variables HSL (globals.css)
+├── App.tsx         # Contenedor de proveedores, query client y suspense loader
+└── main.tsx        # Punto de entrada de renderizado de React
+```
+
+---
+
+## 🏗️ Cómo Usar como Plantilla Base
+
+Este repositorio está configurado como **Repositorio Plantilla** en GitHub. Puedes crear un nuevo proyecto a partir de él siguiendo estos pasos:
+
+1. Haz clic en el botón **"Use this template"** en la parte superior derecha de la página del repositorio en GitHub.
+2. Nombra tu nuevo repositorio e inicialízalo.
+3. Clona tu nuevo repositorio localmente y ejecuta `pnpm install`.
+4. Si quieres reutilizar el sistema visual base para una nueva interfaz (ej. una tienda nueva o una landing page):
+   * Conserva las dependencias de `package.json` y la resolución de alias de `vite.config.ts`.
+   * Reutiliza los componentes atómicos en `src/components/ui/` para tus propios formularios, botones y modales.
+   * Utiliza las variables HSL definidas en `src/styles/globals.css` para mantener la consistencia del modo claro y oscuro.
+
+---
+
+## 🗺️ Roadmap de la Plantilla
+
+- [x] Configuración inicial con React 19 + TypeScript.
+- [x] Corrección responsive para móviles y tablets de 360px a 1440px.
+- [x] Optimización de bundle de 570kB a 7kB.
+- [x] Code Splitting (división manual de dependencias en vendors).
+- [x] Configuración de despliegue automático con GitHub Pages.
+- [ ] Integración de hooks de traducción de idiomas.
+- [ ] Mock de API REST local para simular compras en tiempo real.
+
+---
+
+## ⚠️ Nota Importante
+
+> [!IMPORTANT]
+> **ui-lab** es un laboratorio técnico y de diseño que sirve como kit de referencia para componentes y layouts. **No está pensado para usarse directamente como un sitio web comercial final sin personalización previa.** Utilízalo como punto de partida y biblioteca de ejemplos aprobados.
 
 ---
 
 ## 📄 Licencia
 
-Este proyecto está bajo la Licencia MIT. Consulta el archivo [LICENSE](file:///C:/ANTIGRAVITY-WORK/projects/ui-lab/LICENSE) para más detalles.
+Este proyecto está bajo la **Licencia MIT**. Consulta el archivo [LICENSE](LICENSE) para más detalles.
